@@ -4,8 +4,7 @@ REM Corre esto UNA sola vez, despues de clonar el repo, desde cualquier carpeta.
 REM Crea un "junction" (link de carpeta) para que tu Zomboid escriba directo
 REM dentro de la carpeta del repo clonado. No necesita permisos de administrador.
 
-set REPO_DIR=%~dp0..
-set REPO_DIR=%REPO_DIR:~0,-1%
+for %%I in ("%~dp0..") do set REPO_DIR=%%~fI
 set CACHE_FILE=%~dp0.zomboid-path.txt
 
 REM --- 1. Averiguar donde vive tu carpeta Zomboid (saves/mods/server configs) ---
