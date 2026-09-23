@@ -42,6 +42,10 @@ Zomboid y la carpeta clonada del repo — así el juego escribe directo dentro d
    ```
 2. Cierra el juego si lo tienes abierto.
 3. Corre `C:\ZomboidCututes\scripts\setup-link.bat` (doble clic). Esto:
+   - Intenta detectar tu carpeta `Zomboid` automáticamente (`%USERPROFILE%\Zomboid` o
+     `<disco>:\Zomboid` en la raíz de cualquier disco). Si tú, como en mi caso, la tienes
+     en un lugar distinto (ej. `D:\Zomboid` por un `-cachedir` custom en Steam), el script
+     te la pregunta una vez y la recuerda para la próxima corrida (no se sube al repo).
    - Crea un link de carpeta (`Saves\Multiplayer\Cututes`) entre tu Zomboid y el repo
      clonado, para que el mundo se guarde directo ahí.
    - Copia/linkea los 4 archivos de `Server\` a tu carpeta de Zomboid.

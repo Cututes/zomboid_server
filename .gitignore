@@ -1,3 +1,4 @@
 *-journal
 *.log
 Thumbs.db
+scripts/.zomboid-path.txt
