@@ -88,6 +88,17 @@ for %%F in (Cututes.ini Cututes_SandboxVars.lua Cututes_spawnpoints.lua Cututes_
     )
 )
 
+REM --- 3. Link de la base de cuentas/whitelist (para no perder personajes) ---
+if not exist "!ZOMBOID_DIR!\db" mkdir "!ZOMBOID_DIR!\db"
+
+if exist "!ZOMBOID_DIR!\db\Cututes.db" del "!ZOMBOID_DIR!\db\Cututes.db"
+mklink "!ZOMBOID_DIR!\db\Cututes.db" "%REPO_DIR%\db\Cututes.db" >nul 2>&1
+if errorlevel 1 (
+    echo No se pudo linkear db\Cututes.db como symlink de archivo ^(necesita Modo Desarrollador o admin^).
+    echo Copiando el archivo en su lugar como respaldo...
+    copy /Y "%REPO_DIR%\db\Cututes.db" "!ZOMBOID_DIR!\db\Cututes.db" >nul
+)
+
 echo.
 echo Listo. Ahora edita "!ZOMBOID_DIR!\Server\Cututes.ini" y pon la contrasena real
 echo en la linea Password= ^(no la subas al repo^).

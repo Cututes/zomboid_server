@@ -49,7 +49,11 @@ Zomboid y la carpeta clonada del repo — así el juego escribe directo dentro d
    - Crea un link de carpeta (`Saves\Multiplayer\Cututes`) entre tu Zomboid y el repo
      clonado, para que el mundo se guarde directo ahí.
    - Copia/linkea los 4 archivos de `Server\` a tu carpeta de Zomboid.
-   - **No necesita permisos de administrador** (usa un "junction", no un symlink normal).
+   - Copia/linkea `db\Cututes.db` (la base de cuentas/whitelist) — **importante para no
+     perder personajes** al hostear desde otra PC (ver nota abajo).
+   - **No necesita permisos de administrador** para la carpeta del save (usa un
+     "junction"). Los archivos sueltos (`Server\*`, `db\Cututes.db`) intentan symlink y si
+     tu Windows no lo permite sin admin, caen automáticamente a copiar el archivo.
 4. Abre `%USERPROFILE%\Zomboid\Server\Cututes.ini` y pon la contraseña real del server en
    la línea `Password=` (pregúntala en el chat del grupo, no está en el repo a propósito).
 5. Suscríbete en Steam Workshop a todos los mods de la tabla de arriba y deja que
@@ -82,10 +86,13 @@ quedó.
   cambios mientras jugabas. No fuerces la subida — pide ayuda en el grupo para resolverlo
   a mano en vez de sobrescribir el progreso de otra persona.
 - **No subas tu contraseña real al repo.** Si la cambias, avisa al grupo por otro medio.
-- El archivo `Zomboid\db\Cututes.db` (cuentas/whitelist/admins) **no está en este repo** a
-  propósito, para no exponer IDs de Steam ni contraseñas de otros. Como el server tiene
-  `Open=true`, no lo necesitas para poder unirte — cada quien crea su cuenta al conectarse
-  la primera vez que hostea.
+- `db\Cututes.db` (cuentas/whitelist/admins, con contraseñas hasheadas e IDs de Steam de
+  quien ha jugado) **sí está en este repo**, a propósito, para que los personajes ya
+  creados se reconozcan al hostear desde una PC distinta — sin esta base, el server nuevo
+  trata a cada jugador como cuenta nueva y les puede crear un personaje nuevo en vez de
+  continuar el que ya tenían en `players.db`. Como quedó decidido para este grupo, el
+  riesgo de expolerla en el repo se acepta (no es un repo público conocido/distribuido).
+  Si en algún momento se vuelve un problema, se puede sacar del historial después.
 - El repo va a crecer con el tiempo porque los archivos del mapa (`chunkdata`, `apop`,
   etc.) cambian binariamente en cada sesión y `git` no puede comprimir esas diferencias
   como con texto. Es normal, no hay que hacer nada al respecto salvo tenerlo en cuenta.
