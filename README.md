@@ -29,33 +29,59 @@ cualquiera de nosotros pueda hostear y continuar la misma partida.
 
 Deja que Steam los descargue por completo antes de hostear.
 
-## 2. Instalar la configuración y el mundo
+## 2. Instalar (una sola vez por persona)
 
-Clona este repo y copia el contenido a tu carpeta de Zomboid (normalmente en
-`%USERPROFILE%\Zomboid\`):
+La idea es que **cualquiera de los 3** pueda hostear la misma partida sin copiar y pegar
+la carpeta del save cada vez. En vez de copiar, se crea un *link* entre tu carpeta de
+Zomboid y la carpeta clonada del repo — así el juego escribe directo dentro del repo, y
+`git` detecta los cambios solo.
 
-1. Copia la carpeta `Server\` de este repo dentro de `%USERPROFILE%\Zomboid\Server\`
-   (los 4 archivos deben quedar en `Zomboid\Server\Cututes.ini`, etc.).
-2. Copia la carpeta `Saves\Multiplayer\Cututes\` de este repo dentro de
-   `%USERPROFILE%\Zomboid\Saves\Multiplayer\Cututes\`.
-3. Abre `Zomboid\Server\Cututes.ini` y cambia la línea `Password=CAMBIA_ESTA_CONTRASENA`
-   por la contraseña real del server (pregúntala en el chat del grupo, no está en el repo
-   a propósito).
+1. Clona el repo donde quieras, por ejemplo `C:\ZomboidCututes`:
+   ```
+   git clone https://github.com/Cututes/zomboid_server.git C:\ZomboidCututes
+   ```
+2. Cierra el juego si lo tienes abierto.
+3. Corre `C:\ZomboidCututes\scripts\setup-link.bat` (doble clic). Esto:
+   - Crea un link de carpeta (`Saves\Multiplayer\Cututes`) entre tu Zomboid y el repo
+     clonado, para que el mundo se guarde directo ahí.
+   - Copia/linkea los 4 archivos de `Server\` a tu carpeta de Zomboid.
+   - **No necesita permisos de administrador** (usa un "junction", no un symlink normal).
+4. Abre `%USERPROFILE%\Zomboid\Server\Cututes.ini` y pon la contraseña real del server en
+   la línea `Password=` (pregúntala en el chat del grupo, no está en el repo a propósito).
+5. Suscríbete en Steam Workshop a todos los mods de la tabla de arriba y deja que
+   terminen de descargar.
 
-## 3. Hostear
+## 3. Cada vez que vayas a hostear
 
-- Desde el juego: botón **Host** → elige el server `Cututes` → asegúrate de que todos los
-  mods de la tabla estén marcados como activos antes de darle Start.
-- O como server dedicado: `ProjectZomboidServer.bat -servername Cututes` desde la carpeta
-  de instalación del juego.
+1. **Antes** de abrir el juego, corre `scripts\before-hosting.bat`. Esto trae los cambios
+   más recientes que haya subido otra persona (si alguien jugó después de ti, tu mundo
+   local se actualiza solo).
+2. Abre el juego → **Host** → server `Cututes` → confirma que todos los mods estén
+   activos → Start.
+3. Juega normal. El juego va guardando directo dentro de la carpeta del repo gracias al
+   link, no hace falta hacer nada especial mientras juegas.
+4. Cuando termines y cierres el server, corre `scripts\after-hosting.bat`. Esto sube tus
+   cambios (nuevo estado del mundo) para que la siguiente persona pueda continuar.
+
+Con esos dos scripts, la cadena funciona así: si tú no puedes hostear hoy, la persona
+que sí pueda corre `before-hosting.bat`, juega, y corre `after-hosting.bat` — y si esa
+persona tampoco puede otro día, la tercera hace exactamente lo mismo y sigue desde donde
+quedó.
 
 ## 4. Notas importantes
 
+- **Solo una persona debe hostear a la vez.** Si dos hostean al mismo tiempo sin
+  coordinarse, `git push` va a rechazar la subida de quien suba segundo (los archivos del
+  mundo son binarios y no se pueden combinar automáticamente). Avisen en el chat del grupo
+  quién va a hostear antes de empezar.
+- Si `after-hosting.bat` falla al subir (`git push` rechazado), es porque alguien subió
+  cambios mientras jugabas. No fuerces la subida — pide ayuda en el grupo para resolverlo
+  a mano en vez de sobrescribir el progreso de otra persona.
 - **No subas tu contraseña real al repo.** Si la cambias, avisa al grupo por otro medio.
 - El archivo `Zomboid\db\Cututes.db` (cuentas/whitelist/admins) **no está en este repo** a
   propósito, para no exponer IDs de Steam ni contraseñas de otros. Como el server tiene
   `Open=true`, no lo necesitas para poder unirte — cada quien crea su cuenta al conectarse
   la primera vez que hostea.
-- Si el mundo avanza (alguien juega y guarda progreso), hay que subir de nuevo la carpeta
-  `Saves\Multiplayer\Cututes\` actualizada para que el resto continúe desde ahí. Avisen en
-  el grupo antes de hostear para no pisarse el progreso entre varios.
+- El repo va a crecer con el tiempo porque los archivos del mapa (`chunkdata`, `apop`,
+  etc.) cambian binariamente en cada sesión y `git` no puede comprimir esas diferencias
+  como con texto. Es normal, no hay que hacer nada al respecto salvo tenerlo en cuenta.
