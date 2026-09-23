@@ -1,0 +1,13 @@
+java.lang.RuntimeException: SANITY CHECK FAIL! thread="LoadChunk"
+CRC mismatch save=1491950654 load=3146895071
+save chunk=null
+load wx,wy=1465,839 thread="LoadChunk"
+
+	at zombie.iso.IsoChunk$SanityCheck.log(IsoChunk.java:4583)
+	at zombie.iso.IsoChunk$SanityCheck.checkCRC(IsoChunk.java:4531)
+	at zombie.iso.IsoChunk.LoadFromDiskOrBufferInternal(IsoChunk.java:3649)
+	at zombie.iso.IsoChunk.LoadFromDiskOrBuffer(IsoChunk.java:3595)
+	at zombie.iso.IsoChunk.LoadFromDisk(IsoChunk.java:3589)
+	at zombie.iso.IsoChunk.LoadOrCreate(IsoChunk.java:2353)
+	at zombie.iso.IsoChunk.LoadChunk(IsoChunk.java:2332)
+	at zombie.network.ServerChunkLoader$LoaderThread.run(ServerChunkLoader.java:70)
