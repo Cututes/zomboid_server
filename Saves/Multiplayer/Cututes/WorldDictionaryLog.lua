@@ -7736,3 +7736,48 @@ table.insert(log, {
 	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.HairDyeDarkBrown", registeryID = 6559, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
 	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.ShortMetalSpear", registeryID = 6577, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
 };
+log = log or {};
+table.insert(log, {
+	-- -------------------------------------------------------
+	-- Time: 2026/09/22 22:18:38
+	{
+		type = "info",
+		timeStamp = "2026/09/22 22:18:38",
+		saveWorld = "Cututes",
+		worldVersion = 249,
+		hasErrored = false,
+		itemMods = {
+			"pz-vanilla",
+			"CVI",
+			"Authentic Z - Current",
+			"WolfExtractionQuest",
+			"SkillRecoveryJournal",
+		},
+	},
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.Hat_DeathMask", registeryID = 5444, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.ShortMetalSpike", registeryID = 5578, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.HairDyePurple", registeryID = 5640, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.Fat03_Coveralls", registeryID = 5977, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.HairDyeDarkerBrown", registeryID = 6024, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.Bag_PAWSBackpackAZ", registeryID = 6027, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.MediumMetalSpike", registeryID = 6062, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.RemoteControl_Box", registeryID = 6251, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.SpikePick", registeryID = 6260, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.KnifeEnd", registeryID = 6284, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.Authentic_WalkieTalkie", registeryID = 6492, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.HairDyeDarkBrown", registeryID = 6559, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "reinstate_item", fulltype = "AuthenticZClothing.ShortMetalSpear", registeryID = 6577, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = false, isLoaded = false }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.Hat_DeathMask", registeryID = 5444, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.ShortMetalSpike", registeryID = 5578, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.HairDyePurple", registeryID = 5640, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.Fat03_Coveralls", registeryID = 5977, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.HairDyeDarkerBrown", registeryID = 6024, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.Bag_PAWSBackpackAZ", registeryID = 6027, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.MediumMetalSpike", registeryID = 6062, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.RemoteControl_Box", registeryID = 6251, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.SpikePick", registeryID = 6260, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.KnifeEnd", registeryID = 6284, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.Authentic_WalkieTalkie", registeryID = 6492, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.HairDyeDarkBrown", registeryID = 6559, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+	{ type = "removed_item", scriptMissing = true, fulltype = "AuthenticZClothing.ShortMetalSpear", registeryID = 6577, existsVanilla = false, isModded = true, modID = "Authentic Z - Current", obsolete = false, removed = true, isLoaded = true }
+};
