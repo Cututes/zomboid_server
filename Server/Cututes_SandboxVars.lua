@@ -706,7 +706,7 @@ SandboxVars = {
     -- 4 = 1 punto de penalización por cada rasgo negativo seleccionado después del primero
     NegativeTraitsPenalty = 1,
     -- Número de minutos en el juego que toma leer una página de un libro de habilidades. Mínimo=0.00 Máximo=60.00 Por defecto=2.00
-    MinutesPerPage = 2.0,
+    MinutesPerPage = 0.25,
     -- Cuando está habilitado, los cultivos y hierbas cultivados dentro de edificios morirán. No afecta a plantas de interior decorativas.
     KillInsideCrops = true,
     -- Cuando está habilitado, el crecimiento de las plantas se ve afectado por las estaciones.
@@ -762,6 +762,23 @@ SandboxVars = {
     GeneratorTileRange = 20,
     -- Cuántos pisos hacia arriba y hacia abajo puede alimentar con electricidad un generador. Mínimo=1 Máximo=15 Por defecto=3
     GeneratorVerticalPowerRange = 3,
+    -- Mínimo=0 Máximo=180 Por defecto=0
+    WQS_DeadlineDays_opt = 0,
+    -- Mínimo=3 Máximo=48 Por defecto=3
+    WQS_ExtractionEventHoursDuration_opt = 3,
+    -- Mínimo=0.10 Máximo=4.00 Por defecto=1.00
+    WQS_ExtractionEventDifficulty_opt = 1.0,
+    -- Mínimo=0 Máximo=365 Por defecto=0
+    WQS_WaitForSignalDuration_opt = 0,
+    -- Mínimo=0 Máximo=4 Por defecto=0
+    WQS_RepeatersModeHowMany_opt = 0,
+    -- Mínimo=0.10 Máximo=5.00 Por defecto=1.00
+    WQS_ItemInZombieLootMultiplier_opt = 1.0,
+    WQS_StartWithExtractionItem_opt = false,
+    WQS_ConfinedMode_opt = false,
+    WQS_GameModeExtended_opt = false,
+    WQS_ZoneMap_opt = 1,
+    WQS_ZoneMap_random_opt = 1,
     Basement = {
         -- Con qué frecuencia aparecen sótanos en ubicaciones aleatorias. Por defecto=A Veces
         -- 1 = Nunca
@@ -775,7 +792,7 @@ SandboxVars = {
     },
     Map = {
         -- Si está habilitado, estará disponible una ventana de minimapa.
-        AllowMiniMap = false,
+        AllowMiniMap = true,
         -- Si está habilitado, se puede acceder al mapa mundial.
         AllowWorldMap = true,
         -- Si está habilitado, el mapa mundial estará completamente revelado al comenzar el juego.
@@ -791,7 +808,7 @@ SandboxVars = {
         -- 4 = Aleatorio
         Speed = 4,
         -- Si Velocidad aleatoria está activada, esto controla qué porcentaje de zombis son Sprinters. Marca la casilla "Avanzado" de abajo para usar un porcentaje personalizado. Mínimo=0 Máximo=100 Por defecto=0
-        SprinterPercentage = 0,
+        SprinterPercentage = 2,
         -- Controla el daño que infligen los zombis por ataque. Por defecto=Normal
         -- 1 = Superhumano
         -- 2 = Normal
@@ -809,7 +826,7 @@ SandboxVars = {
         -- 2 = Sólo saliva
         -- 3 = Todos están infectados
         -- 4 = Ninguno
-        Transmission = 1,
+        Transmission = 2,
         -- Controla la rapidez con la que la infección hace efecto. Por defecto=2-3 días
         -- 1 = Instantáneo
         -- 2 = 0-30 segundos
@@ -818,7 +835,7 @@ SandboxVars = {
         -- 5 = 2-3 días
         -- 6 = 1-2 semanas
         -- 7 = Nunca
-        Mortality = 5,
+        Mortality = 4,
         -- Controla la rapidez con la que los cadáveres se levantan como zombis. Por defecto=0-1 minuto
         -- 1 = Instantáneo
         -- 2 = 0-30 segundos
@@ -1016,5 +1033,68 @@ SandboxVars = {
         Butchering = 1.0,
         -- Velocidad a la que sube de nivel la habilidad de Cristalería. Mínimo=0.00 Máximo=1000.00 Por defecto=1.00
         Glassmaking = 1.0,
+    },
+    CommonSense = {
+        ObviousCollecting = true,
+        DisableLoot = false,
+        -- Mínimo=0.00 Máximo=100.00 Por defecto=1.00
+        LootMultiplier = 1.0,
+        PryingMechanic = true,
+        -- Mínimo=0.00 Máximo=5.00 Por defecto=1.00
+        PryingChanceMultiplier = 1.0,
+        PryBuildingDoors = true,
+        PryWindows = true,
+        -- Mínimo=0 Máximo=100 Por defecto=20
+        WindowShatterChance = 20,
+        PryGarageDoors = true,
+        PryVehicleDoors = true,
+        ShatterVehicleWindows = true,
+        PrySafeDoors = false,
+        -- Mínimo=0 Máximo=10 Por defecto=8
+        ReinforcedDoorLevel = 8,
+        GunStats = true,
+        -- Mínimo=0 Máximo=100 Por defecto=33
+        CanWoundChance = 33,
+        ReplaceBandage = true,
+        WashOnly = true,
+        ReloadAllMags = true,
+        StairsAlert = true,
+    },
+    SkillRecoveryJournal = {
+        -- Mínimo=1 Máximo=100 Por defecto=100
+        RecoveryPercentage = 100,
+        -- Mínimo=0.00 Máximo=1000.00 Por defecto=1.00
+        TranscribeSpeed = 1.0,
+        -- Mínimo=0.00 Máximo=1000.00 Por defecto=1.00
+        ReadTimeSpeed = 1.0,
+        -- Mínimo=0.00 Máximo=1.00 Por defecto=0.00
+        IlliterateSpeedMultiplier = 0.0,
+        RecoverProfessionAndTraitsBonuses = false,
+        TranscribeTVXP = true,
+        -- Mínimo=-1 Máximo=100 Por defecto=0
+        RecoverPassiveSkills = 100,
+        -- Mínimo=-1 Máximo=100 Por defecto=-1
+        RecoverPhysicalCategorySkills = -1,
+        -- Mínimo=-1 Máximo=100 Por defecto=-1
+        RecoverCombatSkills = -1,
+        -- Mínimo=-1 Máximo=100 Por defecto=-1
+        RecoverFirearmSkills = -1,
+        -- Mínimo=-1 Máximo=100 Por defecto=-1
+        RecoverCraftingSkills = -1,
+        -- Mínimo=-1 Máximo=100 Por defecto=-1
+        RecoverSurvivalistSkills = -1,
+        -- Mínimo=-1 Máximo=100 Por defecto=-1
+        RecoverFarmingCategorySkills = -1,
+        -- Mínimo=-1 Máximo=100 Por defecto=0
+        KillsTrack = 0,
+        RecoverRecipes = true,
+        RecoveryJournalUsed = true,
+        SecurityFeatures = 1,
+        CraftRecipeNeedLearn = false,
+        CraftRecipe = "",
+        ModDataTrack = "",
+    },
+    ProjectCook = {
+        AllowFrozenCooking = false,
     },
 }
